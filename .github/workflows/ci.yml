@@ -9,7 +9,7 @@ jobs:
       - name: Build development docker image
         run: docker build --target development -t github-actions-playground:development .
       - name: Run tests
-        run: echo "Run tests"
+        run: docker run --rm --name gap-unit-tests github-actions-playground:development test
       - name: Build production docker image
         run: docker build --target production -t github-actions-playground:production .
       - name: Docker Hub Login
