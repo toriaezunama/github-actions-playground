@@ -6,5 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Build development docker image
+        run: docker build --target development -t github-actions-playground:development .
+      - name: Run tests
+        run: echo "Run tests"
+      - name: Build production docker image
+        run: docker build --target production -t github-actions-playground:production .
       - name: Docker Hub Login
         run: docker login -u ${{ secrets.DOCKER_HUB_USER}} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
