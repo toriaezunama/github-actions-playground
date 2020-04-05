@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker Hub Login
-        run: docker login -u ${{ secret.DOCKER_HUB_USER}} -p ${{ secret.DOCKER_HUB_PASSWORD }}
+        run: docker login -u ${{ secrets.DOCKER_HUB_USER}} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
